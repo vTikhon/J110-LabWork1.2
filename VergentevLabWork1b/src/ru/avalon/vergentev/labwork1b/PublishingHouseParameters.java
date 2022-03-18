@@ -1,58 +1,33 @@
 package ru.avalon.vergentev.labwork1b;
 
-public class PublishingHouseParameters<PublishingHouseName> {
-
-    private PublishingHouseName houseName;
+public class PublishingHouseParameters {
+    private String houseName;
     private String cityName;
-
 
 
     //Constructors block
     public PublishingHouseParameters() {
     }
 
-    public PublishingHouseParameters(PublishingHouseName houseName) {
+    public PublishingHouseParameters(String houseName) {
         setHouseName(houseName);
     }
 
-    public PublishingHouseParameters(PublishingHouseName houseName, String cityName) {
-        setHouseName(houseName);
+    public PublishingHouseParameters(String houseName, String cityName) {
+        this(houseName);
         setCityName(cityName);
     }
 
 
     //Methods block
-    public void print() {
-    }
-
-    public static void printAll(BookParameters [] books) {
-        books[0].print();
-        books[1].print();
-        books[2].print();
-        books[3].print();
-        books[4].print();
-    }
-
-//    public static void printCity () {
-//        PublishingHouseParameters [] house = new PublishingHouseParameters[4];
-//        house[0].getCityName();
-//        house[1].getCityName();
-//        house[2].getCityName();
-//        house[3].getCityName();
-//    }
-
-
-
-
-
 
 
     //Getters and Setters block
-    public PublishingHouseName getHouseName() {
+    public String getHouseName() {
         return houseName;
     }
 
-    public void setHouseName(PublishingHouseName houseName) {
+    public void setHouseName(String houseName) {
         if (houseName == null)
             throw new IllegalArgumentException("Publishing house must have the name");
         this.houseName = houseName;
