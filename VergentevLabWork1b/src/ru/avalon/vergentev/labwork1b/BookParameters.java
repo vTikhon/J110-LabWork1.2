@@ -50,43 +50,19 @@ public class BookParameters {
         System.out.println("Год издания: " + getYearOfBook());
         }
 
-    public void print2() {
-        System.out.print('\n');
-        System.out.println("Название книги: " + getTitleOfBook());
-
-        if (getAuthorBook() != null) {
-            System.out.println("Автор книги: " + getAuthorBook());
-        } else if (getAuthorBook() == null && authorsBook[0] == null) {
-        } else {
-            System.out.print("Авторы книги: ");
-            for (int i = 0; i < authorsBook.length-1; i++) {
-                System.out.print(authorsBook[i] + ", ");
-            }
-            System.out.println(authorsBook[authorsBook.length-1]);
-        }
-        if (publishingHouseParameters.getCityName().contains("Санкт-")) {
-            publishingHouseParameters.setCityName("Санкт-Петербург");
-            System.out.println("Издательство книги: " + publishingHouseParameters.getHouseName() + ", " + publishingHouseParameters.getCityName());
-        } else {
-            System.out.println("Издательство книги: " + publishingHouseParameters.getHouseName() + ", " + publishingHouseParameters.getCityName());
-            System.out.println("Год издания: " + getYearOfBook());
-        }
-    }
 
     public static void printAll(BookParameters [] books) {
-        books[0].print();
-        books[1].print();
-        books[2].print();
-        books[3].print();
-        books[4].print();
-    }
-
-    public static void printAll2(BookParameters [] books) {
-        books[0].print2();
-        books[1].print2();
-        books[2].print2();
-        books[3].print2();
-        books[4].print2();
+        for (BookParameters i : books) {
+            i.print();
+        }
+        System.out.print('\n');
+        System.out.println("ДАЛЕЕ ЗАПУСТИТСЯ ВТОРОЙ МЕТОД С ПРОВЕРКОЙ ОШИБКИ В НАЗВАНИИ ГОРОДА САНКТ-ПЕТЕРБУРГ");
+        for (BookParameters i : books) {
+            if (i.publishingHouseParameters.getCityName().contains("Санкт-")) {
+                i.publishingHouseParameters.setCityName("Санкт-Петербург");
+                i.print();
+            }
+        }
     }
 
 

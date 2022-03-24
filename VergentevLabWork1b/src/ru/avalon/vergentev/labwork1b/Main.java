@@ -11,14 +11,5 @@ public class Main {
 
 
         BookParameters.printAll(books);
-        System.out.println('\n');
-        System.out.println('\n');
-        System.out.println("ДАЛЕЕ ЗАПУСТИТСЯ ВТОРОЙ МЕТОД С ПРОВЕРКОЙ ОШИБКИ В НАЗВАНИИ ГОРОДА САНКТ-ПЕТЕРБУРГ");
-        System.out.println('\n');
-        BookParameters.printAll2(books);
-
-
-
     }
-
 }
