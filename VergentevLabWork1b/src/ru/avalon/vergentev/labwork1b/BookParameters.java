@@ -13,24 +13,20 @@ public class BookParameters {
 
 
     //Constructors block
-    public BookParameters(String titleOfBook, String[] authorsBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
-        this.publishingHouseParameters = publishingHouseParameters;
+    public BookParameters(String titleOfBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
         setTitleOfBook(titleOfBook);
-        setAuthorsBook(authorsBook);
         setYearOfBook(yearOfBook);
+        this.publishingHouseParameters = publishingHouseParameters;
     }
 
     public BookParameters(String titleOfBook, String authorBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
-        this.publishingHouseParameters = publishingHouseParameters;
-        setTitleOfBook(titleOfBook);
+        this(titleOfBook, yearOfBook, publishingHouseParameters);
         setAuthorBook(authorBook);
-        setYearOfBook(yearOfBook);
     }
 
-    public BookParameters(String titleOfBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
-        this.publishingHouseParameters = publishingHouseParameters;
-        setTitleOfBook(titleOfBook);
-        setYearOfBook(yearOfBook);
+    public BookParameters(String titleOfBook, String[] authorsBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
+        this(titleOfBook, yearOfBook, publishingHouseParameters);
+        setAuthorsBook(authorsBook);
     }
 
 
