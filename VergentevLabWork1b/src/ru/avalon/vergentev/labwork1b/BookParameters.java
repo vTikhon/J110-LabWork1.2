@@ -82,24 +82,9 @@ public class BookParameters {
         this.yearOfBook = yearOfBook;
     }
 
-    public String [] getAuthorsBook() {
-//        if (getAuthorsBook() == null)
-//            throw new IllegalArgumentException("Index out the diapason");
-        return authorsBook;
-    }
-
     public void setAuthorsBook(String [] authorsBook) {
         this.authorsBook = authorsBook;
     }
-
-//    public String getAuthorBook () {
-//            return authorBook;
-//    }
-//
-//    public void setAuthorBook (String authorBook){
-//            this.authorBook = authorBook;
-//    }
-
 
 
 }
