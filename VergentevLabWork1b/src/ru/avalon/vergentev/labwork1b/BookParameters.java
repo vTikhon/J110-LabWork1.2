@@ -37,8 +37,7 @@ public class BookParameters {
 
         if (getAuthorBook() != null) {
             System.out.println("Автор книги: " + getAuthorBook());
-        } else if (getAuthorBook() == null && authorsBook[0] == null) {
-        } else {
+        } else if (authorsBook[0] != null) {
             System.out.print("Авторы книги: ");
             for (int i = 0; i < authorsBook.length-1; i++) {
                 System.out.print(authorsBook[i] + ", ");
