@@ -3,9 +3,7 @@ package ru.avalon.vergentev.labwork1b;
 public class BookParameters {
     private String titleOfBook;
     private int yearOfBook;
-    private String authorBook;
-    private int numberOfAuthors = 2;
-    public String[] authorsBook = new String[getNumberOfAuthors()];
+    private String[] authorsBook;
     PublishingHouseParameters publishingHouseParameters;
 
 
@@ -13,20 +11,11 @@ public class BookParameters {
 
 
     //Constructors block
-    public BookParameters(String titleOfBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
+    public BookParameters(String titleOfBook, String[] authorsBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
         setTitleOfBook(titleOfBook);
+        setAuthorsBook(authorsBook);
         setYearOfBook(yearOfBook);
         this.publishingHouseParameters = publishingHouseParameters;
-    }
-
-    public BookParameters(String titleOfBook, String authorBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
-        this(titleOfBook, yearOfBook, publishingHouseParameters);
-        setAuthorBook(authorBook);
-    }
-
-    public BookParameters(String titleOfBook, String[] authorsBook, int yearOfBook, PublishingHouseParameters publishingHouseParameters) {
-        this(titleOfBook, yearOfBook, publishingHouseParameters);
-        setAuthorsBook(authorsBook);
     }
 
 
@@ -35,19 +24,22 @@ public class BookParameters {
         System.out.print('\n');
         System.out.println("Название книги: " + getTitleOfBook());
 
-        if (getAuthorBook() != null) {
-            System.out.println("Автор книги: " + getAuthorBook());
-        } else if (authorsBook[0] != null) {
+        if (getNumberOfAuthors() >= 2) {
             System.out.print("Авторы книги: ");
             for (int i = 0; i < authorsBook.length-1; i++) {
                 System.out.print(authorsBook[i] + ", ");
             }
             System.out.println(authorsBook[authorsBook.length-1]);
+        } else if (getNumberOfAuthors() == 1) {
+            System.out.print("Автор книги: ");
+            for (int i = 0; i < authorsBook.length; i++) {
+                System.out.println(authorsBook[i]);
+            }
         }
 
         System.out.println("Издательство книги: " + publishingHouseParameters.getHouseName() + ", " + publishingHouseParameters.getCityName());
         System.out.println("Год издания: " + getYearOfBook());
-        }
+    }
 
 
     public static void printAll(BookParameters [] books) {
@@ -59,37 +51,40 @@ public class BookParameters {
         for (BookParameters i : books) {
             if (i.publishingHouseParameters.getCityName().contains("Санкт-")) {
                 i.publishingHouseParameters.setCityName("Санкт-Петербург");
-                i.print();
             }
+            i.print();
         }
     }
 
+    public int getNumberOfAuthors() {
+        return authorsBook.length;
+    }
 
 
-        //Getters and Setters block
-        public String getTitleOfBook () {
-            return titleOfBook;
-        }
+    //Getters and Setters block
+    public String getTitleOfBook () {
+        return titleOfBook;
+    }
 
-        public void setTitleOfBook (String titleOfBook){
-            if (titleOfBook == null)
+    public void setTitleOfBook (String titleOfBook){
+        if (titleOfBook == null)
                 throw new IllegalArgumentException("Name of book must have the title");
-            this.titleOfBook = titleOfBook;
-        }
+        this.titleOfBook = titleOfBook;
+    }
 
-        public int getYearOfBook () {
+    public int getYearOfBook () {
             return yearOfBook;
         }
 
-        public void setYearOfBook (int yearOfBook){
-            if (yearOfBook < 0)
+    public void setYearOfBook (int yearOfBook){
+        if (yearOfBook < 0)
                 throw new IllegalArgumentException("Year publishing can't less than zero");
-            this.yearOfBook = yearOfBook;
-        }
+        this.yearOfBook = yearOfBook;
+    }
 
     public String [] getAuthorsBook() {
-        if (getAuthorsBook() == null)
-            throw new IllegalArgumentException("Index out the diapason");
+//        if (getAuthorsBook() == null)
+//            throw new IllegalArgumentException("Index out the diapason");
         return authorsBook;
     }
 
@@ -97,21 +92,15 @@ public class BookParameters {
         this.authorsBook = authorsBook;
     }
 
+//    public String getAuthorBook () {
+//            return authorBook;
+//    }
+//
+//    public void setAuthorBook (String authorBook){
+//            this.authorBook = authorBook;
+//    }
 
-        public int getNumberOfAuthors () {
-            return numberOfAuthors;
-        }
 
-        public void setNumberOfAuthors (int numberOfAuthors){
-            this.numberOfAuthors = numberOfAuthors;
-        }
 
-        public String getAuthorBook () {
-            return authorBook;
-        }
-
-        public void setAuthorBook (String authorBook){
-            this.authorBook = authorBook;
-        }
-    }
+}
 
